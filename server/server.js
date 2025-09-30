@@ -2,6 +2,7 @@ import 'dotenv/config'
 import expess from 'express'
 import cors from 'cors'
 import connectDB from './config/mongodb.js'
+import userRouter from './routes/userRoutes.js'
 
 
 // APP Config
@@ -17,6 +18,7 @@ await connectDB()
 
 // API routes
 app.get('/', (req,res)=>res.send('API Working'))
+app.use('/api/user',userRouter)
 
 
 
